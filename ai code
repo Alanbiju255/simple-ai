@@ -1,0 +1,52 @@
+google colab code 
+
+!pip install wikipedia
+!pip install gtts
+
+
+
+
+from googlesearch import search
+from gtts import gTTS
+import wikipedia
+import IPython.display as ipd
+
+def google_search(query):
+    results = search(query, num=5, stop=5, pause=2)
+    return results
+
+def get_wikipedia_summary(query):
+    try:
+        summary = wikipedia.summary(query)
+        return summary
+    except wikipedia.exceptions.PageError:
+        return "Wikipedia page not found."
+    except wikipedia.exceptions.DisambiguationError:
+        return "Multiple Wikipedia pages found. Please be more specific."
+
+def text_to_speech(text):
+    tts = gTTS(text=text, lang='en')
+    tts.save('output.mp3')
+    ipd.display(ipd.Audio('output.mp3', autoplay=True))
+
+query = input("Enter your search query: ")
+
+# Google Search
+search_results = google_search(query)
+
+print("Google Search Results:")
+for i, result in enumerate(search_results, start=1):
+    print(f"{i}. {result}")
+
+# Convert Google search results to speech
+for result in search_results:
+    text_to_speech(result)
+
+# Wikipedia Summary
+print("\nWikipedia Summary:")
+wikipedia_summary = get_wikipedia_summary(query)
+print(wikipedia_summary)
+
+# Convert Wikipedia summary to speech
+text_to_speech("Now, here is a summary from Wikipedia.")
+text_to_speech(wikipedia_summary)
