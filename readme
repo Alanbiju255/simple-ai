@@ -1,0 +1,19 @@
+1. from googlesearch import search: This line imports the search function from the googlesearch module. This function allows you to perform a Google search programmatically. It takes a query as input and returns a list of URLs corresponding to the search results.
+
+2. from gtts import gTTS: This line imports the gTTS class from the gtts module. gTTS stands for "Google Text-to-Speech". It allows you to convert text into speech. This will be used later to convert text output into speech.
+
+3. import wikipedia: This line imports the wikipedia module. This module provides functions to interact with Wikipedia, such as searching for articles and fetching article content.
+
+4. import IPython.display as ipd: This line imports the ipd module from the IPython.display package and aliases it as ipd. IPython.display provides functions for displaying various types of media (such as images, audio, video, etc.) within an IPython environment.
+
+After importing the necessary modules, the code defines several functions:
+
+- google_search(query): This function takes a query as input and performs a Google search using the search function imported earlier. It returns a list of URLs corresponding to the search results.
+
+- get_wikipedia_summary(query): This function takes a query as input and attempts to retrieve a summary from Wikipedia using the wikipedia module. If a Wikipedia page matching the query is found, it returns the summary of the page. If the page is not found or if there are multiple pages matching the query, it returns an appropriate error message.
+
+- text_to_speech(text): This function takes a text string as input and converts it into speech using the gTTS class imported earlier. It saves the speech as an audio file and displays it using the ipd module.
+
+Finally, the main part of the code prompts the user to enter a search query, performs a Google search using the google_search function, displays the search results, converts the search results into speech using the text_to_speech function, retrieves a summary from Wikipedia using the get_wikipedia_summary function, displays the Wikipedia summary, and converts the summary into speech.
+
+Overall, this code allows users to input a search query, retrieve search results from Google, fetch a summary from Wikipedia, and listen to both the search results and Wikipedia summary as speech output.
